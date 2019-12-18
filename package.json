@@ -1,0 +1,17 @@
+{
+  "name": "dojo",
+  "version": "1.0.0",
+  "description": "TDD dojo by extremeprogramming.cn",
+  "main": "src/index.js",
+  "author": "Kimmy",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0"
+  }
+}
