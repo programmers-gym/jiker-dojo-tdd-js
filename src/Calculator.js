@@ -1,6 +1,5 @@
-
 export default class Calculator {
-    add(x, y) {
-        return 0;
-    }
+  add(x, y) {
+    return 0
+  }
 }
