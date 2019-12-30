@@ -68,4 +68,17 @@ describe('ParkingLot', () => {
     expect(retrieved).toEqual(myBMW)
     expect(() => parkingLot.retrieve(ticket)).toThrow(InvalidTicketException)
   })
+
+  it('should be able to park another car when a full parking lot has one car retrieved back', () => {
+    const myBMW = new Car('粤B23829')
+    const parkingLot = new ParkingLot(2)
+
+    parkingLot.park(new Car('粤Z1999'))
+    const ticket = parkingLot.park(new Car('HK1997'))
+
+    expect(() => parkingLot.park(myBMW)).toThrow(NoCapacityException)
+
+    parkingLot.retrieve(ticket)
+    expect(() => parkingLot.park(myBMW)).not.toThrow()
+  })
 })
