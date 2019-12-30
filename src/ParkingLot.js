@@ -9,7 +9,7 @@ export class ParkingLot {
   }
 
   park(car) {
-    if (this.capacity === 0 || this.parked === 1) {
+    if (this.parked >= this.capacity) {
       throw new NoCapacityException()
     }
 
