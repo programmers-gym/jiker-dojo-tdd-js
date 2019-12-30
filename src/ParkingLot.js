@@ -21,10 +21,12 @@ export class ParkingLot {
       this.car2 = car
     }
     const ticket = new Ticket()
+    this.ticketAndParkedCarsMap.set(ticket, car)
     return ticket
   }
 
   retrieve(ticket) {
+    return this.ticketAndParkedCarsMap.get(ticket)
     return this.car || this.car2
   }
 }
