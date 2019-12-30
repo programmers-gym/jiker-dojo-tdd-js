@@ -1,13 +1,6 @@
-class ParkingLot {
-  park(car) {
-    return new Ticket()
-  }
-}
-
-class Car {
-  constructor(number) {}
-}
-class Ticket {}
+import { Car } from './Car'
+import { ParkingLot } from './ParkingLot'
+import { Ticket } from './Ticket'
 
 describe('ParkingLot', () => {
   it('should return a ticket when parking my car given there is available spaces in the parking lot', () => {
