@@ -13,14 +13,6 @@ describe('ParkingLot', () => {
   })
 
   it('should throw exception when parking a car given parking lot is out of capacity', () => {
-    const myBMW = new Car('粤B88392')
-
-    expect(() => {
-      new ParkingLot(0).park(myBMW)
-    }).toThrow(NoCapacityException)
-  })
-
-  it('should throw exception when parking a car given parking lot is out of capacity', () => {
     const someonesBenz = new Car('粤B22891')
     const myBMW = new Car('粤B88392')
     const parkingLot = new ParkingLot(1)
