@@ -14,6 +14,11 @@ export class ParkingLot {
     }
 
     this.parked += 1
+    this.car = car
     return new Ticket()
+  }
+
+  retrieve(ticket) {
+    return this.car
   }
 }

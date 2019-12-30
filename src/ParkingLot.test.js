@@ -22,4 +22,14 @@ describe('ParkingLot', () => {
       parkingLot.park(myBMW)
     }).toThrow(NoCapacityException)
   })
+
+  it('should be able to retrieve my BMW back when using the ticket returned when parking', () => {
+    const myBMW = new Car('粤B88392')
+    const parkingLot = new ParkingLot(1)
+
+    const ticket = parkingLot.park(myBMW)
+    const retrieved = parkingLot.retrieve(ticket)
+
+    expect(retrieved).toEqual(myBMW)
+  })
 })
