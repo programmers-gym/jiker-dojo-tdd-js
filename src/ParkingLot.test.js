@@ -1,4 +1,5 @@
 import { Car } from './Car'
+import { InvalidTicketException } from './InvalidTicketException'
 import { NoCapacityException } from './NoCapacityException'
 import { ParkingLot } from './ParkingLot'
 import { Ticket } from './Ticket'
@@ -43,5 +44,17 @@ describe('ParkingLot', () => {
     const retrieved = parkingLot.retrieve(ticket)
 
     expect(retrieved).toEqual(myBMW)
+  })
+
+  it('should throw exception when trying to retrieve through a ticket that is not send out by the system', () => {
+    const othersBMW = new Car('粤B88888')
+    const someFakedTicket = new Ticket()
+    const parkingLot = new ParkingLot(2)
+
+    parkingLot.park(othersBMW)
+
+    expect(() => parkingLot.retrieve(someFakedTicket)).toThrow(
+      InvalidTicketException
+    )
   })
 })

@@ -1,3 +1,4 @@
+import { InvalidTicketException } from './InvalidTicketException'
 import { NoCapacityException } from './NoCapacityException'
 import { Ticket } from './Ticket'
 
@@ -19,6 +20,10 @@ export class ParkingLot {
   }
 
   retrieve(ticket) {
+    if (!this.ticketAndParkedCarsMap.has(ticket)) {
+      throw new InvalidTicketException()
+    }
+
     return this.ticketAndParkedCarsMap.get(ticket)
   }
 }
