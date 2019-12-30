@@ -14,11 +14,15 @@ export class ParkingLot {
     }
 
     this.parked += 1
-    this.car = car
+    if (!this.car) {
+      this.car = car
+    } else {
+      this.car2 = car
+    }
     return new Ticket()
   }
 
   retrieve(ticket) {
-    return this.car
+    return this.car || this.car2
   }
 }

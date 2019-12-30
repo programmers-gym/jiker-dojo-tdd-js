@@ -1,3 +1,6 @@
 export class Car {
-  constructor(number) {}
+  number
+  constructor(number) {
+    this.number = number
+  }
 }

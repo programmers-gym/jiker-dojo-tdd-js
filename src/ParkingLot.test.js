@@ -32,4 +32,16 @@ describe('ParkingLot', () => {
 
     expect(retrieved).toEqual(myBMW)
   })
+
+  it('should retrieve exactly my BMW back when using my ticket given there is some other BMWs in the parking lot', () => {
+    const myBMW = new Car('粤B88392')
+    const othersBMW = new Car('粤B88888')
+    const parkingLot = new ParkingLot(2)
+
+    const ticket = parkingLot.park(myBMW)
+    parkingLot.park(othersBMW)
+    const retrieved = parkingLot.retrieve(ticket)
+
+    expect(retrieved).toEqual(myBMW)
+  })
 })
