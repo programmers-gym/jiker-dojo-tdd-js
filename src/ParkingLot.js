@@ -15,11 +15,6 @@ export class ParkingLot {
     }
 
     this.parked += 1
-    if (!this.car) {
-      this.car = car
-    } else {
-      this.car2 = car
-    }
     const ticket = new Ticket()
     this.ticketAndParkedCarsMap.set(ticket, car)
     return ticket
@@ -27,6 +22,5 @@ export class ParkingLot {
 
   retrieve(ticket) {
     return this.ticketAndParkedCarsMap.get(ticket)
-    return this.car || this.car2
   }
 }
