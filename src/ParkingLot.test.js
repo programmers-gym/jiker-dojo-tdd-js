@@ -57,4 +57,15 @@ describe('ParkingLot', () => {
       InvalidTicketException
     )
   })
+
+  it('a same ticket should not be used twice', () => {
+    const myBMW = new Car('粤B88392')
+    const parkingLot = new ParkingLot(1)
+
+    const ticket = parkingLot.park(myBMW)
+    const retrieved = parkingLot.retrieve(ticket)
+
+    expect(retrieved).toEqual(myBMW)
+    expect(() => parkingLot.retrieve(ticket)).toThrow(InvalidTicketException)
+  })
 })

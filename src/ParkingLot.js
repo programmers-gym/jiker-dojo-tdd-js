@@ -24,6 +24,8 @@ export class ParkingLot {
       throw new InvalidTicketException()
     }
 
-    return this.ticketAndParkedCarsMap.get(ticket)
+    const car = this.ticketAndParkedCarsMap.get(ticket)
+    this.ticketAndParkedCarsMap.delete(ticket)
+    return car
   }
 }
