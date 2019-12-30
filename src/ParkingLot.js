@@ -4,6 +4,7 @@ import { Ticket } from './Ticket'
 export class ParkingLot {
   capacity
   parked = 0
+  ticketAndParkedCarsMap = new Map()
   constructor(capacity) {
     this.capacity = capacity
   }
@@ -19,7 +20,8 @@ export class ParkingLot {
     } else {
       this.car2 = car
     }
-    return new Ticket()
+    const ticket = new Ticket()
+    return ticket
   }
 
   retrieve(ticket) {
