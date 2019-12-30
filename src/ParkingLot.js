@@ -3,18 +3,16 @@ import { Ticket } from './Ticket'
 
 export class ParkingLot {
   capacity
-  parked = 0
   ticketAndParkedCarsMap = new Map()
   constructor(capacity) {
     this.capacity = capacity
   }
 
   park(car) {
-    if (this.parked >= this.capacity) {
+    if (this.ticketAndParkedCarsMap.size >= this.capacity) {
       throw new NoCapacityException()
     }
 
-    this.parked += 1
     const ticket = new Ticket()
     this.ticketAndParkedCarsMap.set(ticket, car)
     return ticket
